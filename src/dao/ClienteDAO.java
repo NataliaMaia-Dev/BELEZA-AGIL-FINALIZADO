@@ -22,7 +22,7 @@ public class ClienteDAO implements ClienteRepository {
             } else {
                 stmt.setNull(2, Types.DATE);
             }
-            
+
             stmt.setString(3, cliente.getCpf());
             stmt.setString(4, cliente.getTelefone());
 

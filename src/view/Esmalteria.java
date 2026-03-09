@@ -22,6 +22,15 @@ public class Esmalteria {
 
     public static void main(String[] args) {
 
+        // ── Para rodar o SISTEMA: deixe esta linha ativa ───────────────────────
+        java.awt.EventQueue.invokeLater(() -> new TelaPrincipal().setVisible(true));
+
+        // ── Para rodar os TESTES: comente a linha acima e descomente abaixo ───
+        // rodarTestes();
+    }
+
+    private static void rodarTestes() {
+
         // ── Teste 1: Cadastrar Cliente ─────────────────────────────────────────
         try {
             List<ClienteDTO> banco = new ArrayList<>();

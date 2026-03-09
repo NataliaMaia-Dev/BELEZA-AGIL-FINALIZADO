@@ -2,10 +2,8 @@ package view;
 
 import dto.AgendamentoDTO;
 import dto.AgendamentoSlot;
-import dto.ClienteDTO;
 import dto.ComandaDTO;
 import dto.ProfissionalDTO;
-import dto.ServicoDTO;
 import java.awt.Frame;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -22,6 +20,7 @@ import java.util.logging.Logger;
 import service.AgendamentoService;
 import service.ClienteService;
 import service.ProfissionalService;
+import service.ServicoService;
 
 public class AgendaPanel extends javax.swing.JPanel {
     private final AgendamentoService agendamentoService;
@@ -311,15 +310,15 @@ public class AgendaPanel extends javax.swing.JPanel {
         Object value = jTable1.getValueAt(row, col);
 
         if (value instanceof AgendamentoSlot) {
+            AgendamentoSlot slot = (AgendamentoSlot) value;
+            AgendamentoDTO ag = slot.getAgendamento();
+            List<AgendamentoDTO> agendamentosDoBanco = null;
             try {
-                AgendamentoSlot slot = (AgendamentoSlot) value;
-                AgendamentoDTO ag = slot.getAgendamento();
-
-                List<AgendamentoDTO> agendamentosDoBanco = new AgendamentoDAO().listarTodos();
-                abrirDetalhesComanda(ag, row, col, agendamentosDoBanco);
+                agendamentosDoBanco = new AgendamentoService().listarTodos();
             } catch (SQLException ex) {
                 Logger.getLogger(AgendaPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
+            abrirDetalhesComanda(ag, row, col, agendamentosDoBanco);
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -329,18 +328,13 @@ public class AgendaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jCalendar1PropertyChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            ListagemServicosDialog dialog = new ListagemServicosDialog(
-                    (Frame) SwingUtilities.getWindowAncestor(this),
-                    true,
-                    null,
-                    servicoService
-            );
-            dialog.setVisible(true);
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao carregar serviços do banco: " + ex.getMessage());
-        }
+        ListagemServicosDialog dialog = new ListagemServicosDialog(
+                (Frame) SwingUtilities.getWindowAncestor(this),
+                true,
+                null,
+                servicoService
+        );
+        dialog.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -353,18 +347,13 @@ public class AgendaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        try {
-            ListagemClientesDialog dialog = new ListagemClientesDialog(
-                    (Frame) SwingUtilities.getWindowAncestor(this),
-                    true,
-                    this,
-                    clienteService
-            );
-            dialog.setVisible(true);
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao carregar clientes do banco: " + ex.getMessage());
-        }
+        ListagemClientesDialog dialog = new ListagemClientesDialog(
+                (Frame) SwingUtilities.getWindowAncestor(this),
+                true,
+                this,
+                clienteService
+        );
+        dialog.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
