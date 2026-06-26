@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - Beleza Ágil</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/agenda.css">
+</head>
+<body data-page="agenda">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span class="sidebar-brand-icon">💅</span>
+                <div class="sidebar-brand-text">
+                    <h1>Beleza Ágil</h1>
+                    <span>Gestão de Serviços</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav"></nav>
+            <div class="sidebar-footer">
+                <p>v3.0 — Web + API REST</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h2>Agenda</h2>
+                <p>Visualize e controle os atendimentos por profissional e horário.</p>
+            </header>
+
+            <div id="alert-container" class="alert"></div>
+
+            <div class="agenda-layout">
+                <aside class="agenda-sidebar">
+                    <div class="card date-picker-card">
+                        <h3>Data</h3>
+                        <input type="date" id="data-agenda" class="form-control">
+                    </div>
+                    <div class="card agenda-actions">
+                        <button type="button" id="btn-novo-agendamento" class="btn btn-primary">+ Novo Agendamento</button>
+                    </div>
+                    <div class="agenda-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: var(--color-primary-light);"></span>
+                            <span>Ocupado</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: var(--color-success-bg);"></span>
+                            <span>Finalizado</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <section class="card">
+                    <div class="card-header">
+                        <h3>Grade de Horários</h3>
+                    </div>
+                    <div class="agenda-table-wrapper" id="agenda-table-container"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="modal-detalhes">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Detalhes da Comanda</h3>
+                <button type="button" class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="form-group">
+                <label>Comanda</label>
+                <p id="detalhe-comanda">-</p>
+            </div>
+            <div class="form-group">
+                <label>Cliente</label>
+                <p id="detalhe-cliente">-</p>
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <p id="detalhe-data">-</p>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <p id="detalhe-status">-</p>
+            </div>
+            <div class="form-group">
+                <label>Serviços</label>
+                <ul id="detalhe-servicos"></ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" id="btn-finalizar" class="btn btn-success">Finalizar Comanda</button>
+                <button type="button" id="btn-excluir-comanda" class="btn btn-danger">Excluir Comanda</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/constants.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/agenda.js"></script>
+</body>
+</html>

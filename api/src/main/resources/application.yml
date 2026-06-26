@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: beleza-agil-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/esmalteria?useSSL=false&serverTimezone=America/Sao_Paulo&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+server:
+  port: 8080
+
+beleza-agil:
+  limite-profissionais: 5
+  intervalo-minutos: 10

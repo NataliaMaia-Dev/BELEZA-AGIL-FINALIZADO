@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza Ágil - Sistema de Gestão</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body data-page="home">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span class="sidebar-brand-icon">💅</span>
+                <div class="sidebar-brand-text">
+                    <h1>Beleza Ágil</h1>
+                    <span>Gestão de Serviços</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav"></nav>
+            <div class="sidebar-footer">
+                <p>v3.0 — Web + API REST</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="hero-section">
+                <h2>Beleza Ágil</h2>
+                <p>Sistema de gestão para esmalterias e estéticas. Agende atendimentos, gerencie profissionais, clientes e serviços de forma simples e organizada.</p>
+                <div class="hero-actions">
+                    <a href="agenda.html" class="btn btn-primary">Ver Agenda</a>
+                    <a href="agendamento.html" class="btn btn-outline">Novo Agendamento</a>
+                </div>
+            </section>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon clients">👤</div>
+                    <div class="stat-info">
+                        <h4 id="stat-clientes">0</h4>
+                        <p>Clientes</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon professionals">💼</div>
+                    <div class="stat-info">
+                        <h4 id="stat-profissionais">0</h4>
+                        <p>Profissionais</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon services">✂️</div>
+                    <div class="stat-info">
+                        <h4 id="stat-servicos">0</h4>
+                        <p>Serviços</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon appointments">📅</div>
+                    <div class="stat-info">
+                        <h4 id="stat-agendamentos">0</h4>
+                        <p>Agendamentos Hoje</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="quick-links">
+                <h3>Acesso Rápido</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-card-icon">📅</div>
+                        <h3>Agenda</h3>
+                        <p>Visualize e controle os atendimentos do dia por profissional e horário.</p>
+                        <a href="agenda.html" class="btn btn-primary btn-sm">Acessar</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">📝</div>
+                        <h3>Agendar Serviço</h3>
+                        <p>Crie novos agendamentos com validação de conflitos de horário.</p>
+                        <a href="agendamento.html" class="btn btn-primary btn-sm">Acessar</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">👤</div>
+                        <h3>Clientes</h3>
+                        <p>Cadastre e gerencie os clientes da esmalteria.</p>
+                        <a href="clientes.html" class="btn btn-primary btn-sm">Acessar</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">💼</div>
+                        <h3>Profissionais</h3>
+                        <p>Gerencie até 5 profissionais e suas funções.</p>
+                        <a href="profissionais.html" class="btn btn-primary btn-sm">Acessar</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">✂️</div>
+                        <h3>Serviços</h3>
+                        <p>Cadastre serviços com tempo de execução e valor.</p>
+                        <a href="servicos.html" class="btn btn-primary btn-sm">Acessar</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/constants.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Serviço - Beleza Ágil</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body data-page="agendamento">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span class="sidebar-brand-icon">💅</span>
+                <div class="sidebar-brand-text">
+                    <h1>Beleza Ágil</h1>
+                    <span>Gestão de Serviços</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav"></nav>
+            <div class="sidebar-footer">
+                <p>v3.0 — Web + API REST</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h2>Agendar Serviço</h2>
+                <p>Preencha os dados para criar um novo agendamento.</p>
+            </header>
+
+            <div id="alert-container" class="alert"></div>
+
+            <div class="card">
+                <form id="form-agendamento" novalidate>
+                    <div class="form-section">
+                        <h3 class="form-section-title">Dados do Agendamento</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="comanda">Comanda</label>
+                                <input type="text" id="comanda" class="form-control" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="data">Data <span class="required">*</span></label>
+                                <input type="date" id="data" class="form-control" required>
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cliente">Cliente <span class="required">*</span></label>
+                            <select id="cliente" class="form-control" required>
+                                <option value="">Selecione...</option>
+                            </select>
+                            <span class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Serviço Principal</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="horario">Horário <span class="required">*</span></label>
+                                <select id="horario" class="form-control" required>
+                                    <option value="">Selecione...</option>
+                                </select>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="servico">Serviço <span class="required">*</span></label>
+                                <select id="servico" class="form-control" required>
+                                    <option value="">Selecione...</option>
+                                </select>
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="profissional">Profissional <span class="required">*</span></label>
+                            <select id="profissional" class="form-control" required>
+                                <option value="">Selecione...</option>
+                            </select>
+                            <span class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Serviços Adicionais</h3>
+                        <div id="servicos-extras"></div>
+                        <button type="button" id="btn-add-servico" class="btn btn-secondary btn-sm">+ Adicionar serviço</button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="btn-cancelar" class="btn btn-secondary">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Salvar Agendamento</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/constants.js"></script>
+    <script src="js/validators.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/agendamento.js"></script>
+</body>
+</html>
