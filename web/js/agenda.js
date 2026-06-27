@@ -18,7 +18,7 @@ const AgendaPage = {
         }
 
         this.dateInput.value = this.selectedDate;
-        this.dateInput.min = Utils.getTodayISO();
+        // BUG-005 fix: removido min para permitir consulta ao histórico de datas passadas
 
         this.bindEvents();
         await this.loadData();
@@ -92,9 +92,12 @@ const AgendaPage = {
                 if (slot) {
                     const levelClass = slot.level > 0 ? `occupied-level-${Math.min(slot.level, 3)}` : '';
                     const finalizadoClass = slot.finalizado ? 'finalizado' : '';
+                    // BUG-003 fix: exibe os dois primeiros nomes para distinguir clientes homônimos
+                    const partesNome = slot.cliente.split(' ');
+                    const nomeExibido = partesNome.length > 1 ? `${partesNome[0]} ${partesNome[1]}` : partesNome[0];
                     html += `<td class="occupied ${levelClass} ${finalizadoClass}" 
                         data-agendamento-id="${slot.agendamentoId}" 
-                        title="${slot.cliente} - ${slot.servico}">${slot.level === 0 ? slot.cliente.split(' ')[0] : ''}</td>`;
+                        title="${slot.cliente} - ${slot.servico}">${slot.level === 0 ? nomeExibido : ''}</td>`;
                 } else {
                     html += '<td></td>';
                 }

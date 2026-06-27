@@ -29,9 +29,11 @@ public class ServicoService {
     }
 
     public ServicoDto salvar(ServicoDto dto) {
+        // BUG-001 fix: rejeitar duração zero ou negativa para evitar agendamentos invisíveis na grade
         if (dto.tempoExecucao() == null || dto.tempoExecucao() <= 0) {
             throw new BusinessException("Tempo de execução deve ser maior que zero.");
         }
+
         Servico entity = dto.id() != null
                 ? servicoRepository.findById(dto.id())
                     .orElseThrow(() -> new BusinessException("Serviço não encontrado."))

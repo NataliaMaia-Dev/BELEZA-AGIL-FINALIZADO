@@ -2,6 +2,7 @@ package com.belezaagil.validator;
 
 import com.belezaagil.dto.AgendamentoRequest;
 import com.belezaagil.exception.BusinessException;
+import com.belezaagil.validators.AgendamentoValidator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +29,8 @@ class AgendamentoValidatorTest {
                 1,                          // profissionalId
                 "2099-12-31",               // data (futuro garantido)
                 "09:00",                    // horario
-                List.of("09:00", "09:15")   // horariosOcupados
+                List.of("09:00", "09:15"),   // horariosOcupados
+                1
         );
     }
 
@@ -50,7 +52,7 @@ class AgendamentoValidatorTest {
     void clienteIdNulo_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
                 null, 1, 1, "2099-12-31", "09:00", List.of("09:00")
-        );
+        , 1);
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> AgendamentoValidator.validar(req));
         assertTrue(ex.getMessage().toLowerCase().contains("cliente"),
@@ -65,7 +67,7 @@ class AgendamentoValidatorTest {
     void servicoIdNulo_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
                 1, null, 1, "2099-12-31", "09:00", List.of("09:00")
-        );
+        ,1);
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> AgendamentoValidator.validar(req));
         assertTrue(ex.getMessage().toLowerCase().contains("servi"),
@@ -80,7 +82,7 @@ class AgendamentoValidatorTest {
     void profissionalIdNulo_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
                 1, 1, null, "2099-12-31", "09:00", List.of("09:00")
-        );
+        ,1);
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> AgendamentoValidator.validar(req));
         assertTrue(ex.getMessage().toLowerCase().contains("profissional"),
@@ -95,7 +97,7 @@ class AgendamentoValidatorTest {
     void dataNula_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
                 1, 1, 1, null, "09:00", List.of("09:00")
-        );
+        ,1);
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> AgendamentoValidator.validar(req));
         assertTrue(ex.getMessage().toLowerCase().contains("data"),
@@ -110,7 +112,7 @@ class AgendamentoValidatorTest {
     void horarioNulo_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
                 1, 1, 1, "2099-12-31", null, List.of("09:00")
-        );
+        ,1);
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> AgendamentoValidator.validar(req));
         assertTrue(ex.getMessage().toLowerCase().contains("hor"),
@@ -125,7 +127,7 @@ class AgendamentoValidatorTest {
     void horariosOcupadosNulos_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
                 1, 1, 1, "2099-12-31", "09:00", null
-        );
+        ,1);
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> AgendamentoValidator.validar(req));
         assertNotNull(ex.getMessage());

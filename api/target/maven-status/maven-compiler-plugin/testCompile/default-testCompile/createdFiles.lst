@@ -1,0 +1,4 @@
+com\belezaagil\service\AgendamentoServiceTest.class
+com\belezaagil\validator\AgendamentoValidatorTest.class
+com\belezaagil\service\ProfissionalServiceTest.class
+com\belezaagil\utils\AgendamentoUtilsTest.class

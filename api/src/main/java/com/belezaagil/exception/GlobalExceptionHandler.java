@@ -32,8 +32,19 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ErrorResponse> handleDataIntegrity(DataIntegrityViolationException ex) {
-        return ResponseEntity.badRequest()
-                .body(new ErrorResponse("Não é possível excluir: registro possui vínculos com outros dados."));
+        // BUG-004 fix: mensagem orientativa indica que vínculos devem ser removidos antes
+        String msg = ex.getMessage() != null ? ex.getMessage().toLowerCase() : "";
+        String resposta;
+        if (msg.contains("agendamento") || msg.contains("profissional_id")) {
+            resposta = "Não é possível excluir: este profissional possui agendamentos vinculados. Exclua os agendamentos primeiro.";
+        } else if (msg.contains("cliente") || msg.contains("cliente_id")) {
+            resposta = "Não é possível excluir: este cliente possui agendamentos vinculados. Exclua os agendamentos primeiro.";
+        } else if (msg.contains("servico") || msg.contains("servico_id")) {
+            resposta = "Não é possível excluir: este serviço possui agendamentos vinculados. Exclua os agendamentos primeiro.";
+        } else {
+            resposta = "Não é possível excluir: registro possui vínculos com outros dados.";
+        }
+        return ResponseEntity.badRequest().body(new ErrorResponse(resposta));
     }
 
     @ExceptionHandler(Exception.class)

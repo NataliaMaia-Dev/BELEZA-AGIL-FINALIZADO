@@ -14,6 +14,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -103,7 +104,7 @@ class AgendamentoServiceTest {
     @DisplayName("TC-S03: data no passado → BusinessException")
     void dataNoPassado_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
-                1, 1, 1, "2000-01-01", "09:00", List.of("09:00")
+                1, 1, 1, "2000-01-01", "09:00", List.of("09:00"), comandaMock.getId()
         );
         AgendamentoLoteRequest request = new AgendamentoLoteRequest(List.of(req));
 
@@ -132,7 +133,7 @@ class AgendamentoServiceTest {
     void agendamentoValido_salvaComComanda() {
         AgendamentoRequest req = new AgendamentoRequest(
                 1, 1, 1, "2099-12-31", "09:00", List.of("09:00", "09:15")
-        );
+        , comandaMock.getId());
         AgendamentoLoteRequest request = new AgendamentoLoteRequest(List.of(req));
 
         // Stub de criação de comanda
@@ -155,6 +156,7 @@ class AgendamentoServiceTest {
         agendamentoSalvo.setServico(servicoMock);
         agendamentoSalvo.setProfissional(profissionalMock);
         agendamentoSalvo.setComanda(comandaMock);
+        agendamentoSalvo.setDataAgendamento(LocalDateTime.of(2099, 12, 31, 9, 0));
         when(agendamentoRepository.save(any(Agendamento.class))).thenReturn(agendamentoSalvo);
 
         assertDoesNotThrow(() -> agendamentoService.salvarLote(request));
@@ -181,7 +183,7 @@ class AgendamentoServiceTest {
 
         AgendamentoRequest req = new AgendamentoRequest(
                 1, 1, 1, "2099-12-31", "09:00", List.of("09:00") // colide com existente
-        );
+        , comandaMock.getId());
         AgendamentoLoteRequest request = new AgendamentoLoteRequest(List.of(req));
 
         when(comandaService.criar()).thenReturn(new ComandaDto(99));
@@ -207,7 +209,7 @@ class AgendamentoServiceTest {
     void clienteNaoEncontrado_lancaExcecao() {
         AgendamentoRequest req = new AgendamentoRequest(
                 999, 1, 1, "2099-12-31", "09:00", List.of("09:00")
-        );
+        , comandaMock.getId());
         AgendamentoLoteRequest request = new AgendamentoLoteRequest(List.of(req));
 
         when(comandaService.criar()).thenReturn(new ComandaDto(99));

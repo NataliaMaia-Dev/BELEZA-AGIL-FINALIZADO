@@ -67,11 +67,12 @@ const Utils = {
     },
 
     getTodayISO() {
+        // BUG-002 fix: usa getFullYear/Month/Date para evitar desvio de fuso UTC vs local
         const today = new Date();
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const day = String(today.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`; 
+        return `${year}-${month}-${day}`;
     },
 
     debounce(fn, delay) {

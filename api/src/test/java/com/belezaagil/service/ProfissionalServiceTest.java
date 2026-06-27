@@ -4,6 +4,7 @@ import com.belezaagil.dto.ProfissionalDto;
 import com.belezaagil.entity.Profissional;
 import com.belezaagil.exception.BusinessException;
 import com.belezaagil.repository.ProfissionalRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,10 +30,12 @@ class ProfissionalServiceTest {
     @Mock
     private ProfissionalRepository profissionalRepository;
 
-    // Limite fixo em 5 (igual ao application.yml)
-    @InjectMocks
-    private ProfissionalService profissionalService =
-            new ProfissionalService(profissionalRepository, 5);
+    private ProfissionalService profissionalService;
+
+    @BeforeEach
+    void setUp() {
+        profissionalService = new ProfissionalService(profissionalRepository, 5);
+    }
 
     private ProfissionalDto dtoValido(Integer id) {
         return new ProfissionalDto(

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.belezaagil.service.ProfissionalServiceTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 1.394 s <<< FAILURE! -- in com.belezaagil.service.ProfissionalServiceTest
-com.belezaagil.service.ProfissionalServiceTest.excluirExistente_deleteChamado -- Time elapsed: 1.299 s <<< FAILURE!
+Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.076 s <<< FAILURE! -- in com.belezaagil.service.ProfissionalServiceTest
+com.belezaagil.service.ProfissionalServiceTest.excluirExistente_deleteChamado -- Time elapsed: 0.009 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsById(Object)" because "this.profissionalRepository" is null
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:84)
@@ -10,9 +10,9 @@ org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.Null
 	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:36)
 	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3168)
 	at com.belezaagil.service.ProfissionalServiceTest.excluirExistente_deleteChamado(ProfissionalServiceTest.java:145)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsById(Object)" because "this.profissionalRepository" is null
 	at com.belezaagil.service.ProfissionalService.excluir(ProfissionalService.java:63)
 	at com.belezaagil.service.ProfissionalServiceTest.lambda$excluirExistente_deleteChamado$5(ProfissionalServiceTest.java:145)
@@ -26,16 +26,16 @@ org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected:
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
 	at com.belezaagil.service.ProfissionalServiceTest.excluirInexistente_lancaExcecao(ProfissionalServiceTest.java:129)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsById(Object)" because "this.profissionalRepository" is null
 	at com.belezaagil.service.ProfissionalService.excluir(ProfissionalService.java:63)
 	at com.belezaagil.service.ProfissionalServiceTest.lambda$excluirInexistente_lancaExcecao$4(ProfissionalServiceTest.java:130)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
 	... 6 more
 
-com.belezaagil.service.ProfissionalServiceTest.abaixoDoLimite_salvaComSucesso -- Time elapsed: 0.015 s <<< FAILURE!
+com.belezaagil.service.ProfissionalServiceTest.abaixoDoLimite_salvaComSucesso -- Time elapsed: 0.031 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsByCpf(String)" because "this.profissionalRepository" is null
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:84)
@@ -43,9 +43,9 @@ org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.Null
 	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:58)
 	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3228)
 	at com.belezaagil.service.ProfissionalServiceTest.abaixoDoLimite_salvaComSucesso(ProfissionalServiceTest.java:59)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsByCpf(String)" because "this.profissionalRepository" is null
 	at com.belezaagil.service.ProfissionalService.cpfExists(ProfissionalService.java:77)
 	at com.belezaagil.service.ProfissionalService.validarCpfUnico(ProfissionalService.java:81)
@@ -54,16 +54,16 @@ Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.reposit
 	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:71)
 	... 6 more
 
-com.belezaagil.service.ProfissionalServiceTest.cpfDuplicado_lancaExcecao -- Time elapsed: 0 s <<< FAILURE!
+com.belezaagil.service.ProfissionalServiceTest.cpfDuplicado_lancaExcecao -- Time elapsed: 0.004 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <com.belezaagil.exception.BusinessException> but was: <java.lang.NullPointerException>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
 	at com.belezaagil.service.ProfissionalServiceTest.cpfDuplicado_lancaExcecao(ProfissionalServiceTest.java:88)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsByCpf(String)" because "this.profissionalRepository" is null
 	at com.belezaagil.service.ProfissionalService.cpfExists(ProfissionalService.java:77)
 	at com.belezaagil.service.ProfissionalService.validarCpfUnico(ProfissionalService.java:81)
@@ -72,7 +72,7 @@ Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.reposit
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
 	... 6 more
 
-com.belezaagil.service.ProfissionalServiceTest.edicao_naoBloqueadaPorLimite -- Time elapsed: 0 s <<< FAILURE!
+com.belezaagil.service.ProfissionalServiceTest.edicao_naoBloqueadaPorLimite -- Time elapsed: 0.004 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsByCpfAndIdNot(String, java.lang.Integer)" because "this.profissionalRepository" is null
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:84)
@@ -80,9 +80,9 @@ org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.Null
 	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:58)
 	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3228)
 	at com.belezaagil.service.ProfissionalServiceTest.edicao_naoBloqueadaPorLimite(ProfissionalServiceTest.java:118)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsByCpfAndIdNot(String, java.lang.Integer)" because "this.profissionalRepository" is null
 	at com.belezaagil.service.ProfissionalService.cpfExists(ProfissionalService.java:75)
 	at com.belezaagil.service.ProfissionalService.validarCpfUnico(ProfissionalService.java:81)
@@ -91,16 +91,16 @@ Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.reposit
 	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:71)
 	... 6 more
 
-com.belezaagil.service.ProfissionalServiceTest.noLimite_lancaExcecao -- Time elapsed: 0.016 s <<< FAILURE!
+com.belezaagil.service.ProfissionalServiceTest.noLimite_lancaExcecao -- Time elapsed: 0 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <com.belezaagil.exception.BusinessException> but was: <java.lang.NullPointerException>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
 	at com.belezaagil.service.ProfissionalServiceTest.noLimite_lancaExcecao(ProfissionalServiceTest.java:72)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.NullPointerException: Cannot invoke "com.belezaagil.repository.ProfissionalRepository.existsByCpf(String)" because "this.profissionalRepository" is null
 	at com.belezaagil.service.ProfissionalService.cpfExists(ProfissionalService.java:77)
 	at com.belezaagil.service.ProfissionalService.validarCpfUnico(ProfissionalService.java:81)
